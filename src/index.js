@@ -2,19 +2,17 @@ import {homeDiv} from "./home";
 import {menuDiv} from "./menu";
 import {contactDiv} from "./contact";
 // getting Links
-const homeLink = document.querySelector("#home");
-const menuLink = document.querySelector("#menu");
-const contactLink = document.querySelector("#contact");
-const links = document.querySelectorAll("li");
+const buttons = document.querySelectorAll("button");
 const content = document.querySelector("#content");
 
 //
 content.appendChild(homeDiv);
-
+let currentContentText = "Home";
 //
-links.forEach((link) => {
-    link.addEventListener("click", (e) => {
-        //function for switching content
+buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        console.log("aaaaaaaa");
+        changeContent(e.target.textContent);
     });
 });
 
@@ -23,6 +21,18 @@ function changeContent(text) {
         return;
     }
     if (text == "Home") {
-        
+        content.firstChild.remove();
+        content.appendChild(homeDiv);
+        currentContentText = "Home";
+    }
+    else if(text == "Menu") {
+        content.firstChild.remove();
+        content.appendChild(menuDiv);
+        currentContentText = "Menu";
+    }
+    else {
+        content.firstChild.remove();
+        content.appendChild(contactDiv);
+        currentContentText = "Contact";
     }
 }

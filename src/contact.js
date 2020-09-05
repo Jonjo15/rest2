@@ -1,4 +1,5 @@
 const contactDiv = document.createElement("div");
+contactDiv.classList.add("contactDiv");
 
 const p1 = document.createElement("p");
 const p2 = document.createElement("p");
